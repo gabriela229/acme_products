@@ -6,8 +6,13 @@
     <div class='container'>
       <a href="/products">All Products</a>
       <h1>Product - {{ product.name }}</h1>
-        <ul class='list-group'>
-        </ul>
+
+          <div class='well'> Rating: {{ product.rating }}
+            <br/>
+            <form action="/products/{{ product.id }}?_method=DELETE" method='POST'>
+            <button class="btn btn-danger">Delete</button>
+            </form>
+          </div>
 
     </div>
   </body>

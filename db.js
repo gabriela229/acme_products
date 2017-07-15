@@ -1,11 +1,13 @@
 var products = [
   {
     id: 1,
-    name: 'Foo'
+    name: 'Foo',
+    rating: 2
   },
   {
     id: 2,
-    name: 'Bazz'
+    name: 'Bazz',
+    rating: 4
   }
 ];
 

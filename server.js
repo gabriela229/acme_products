@@ -5,6 +5,8 @@ const express = require('express'),
 
 var app = express();
 app.use('/vendor', express.static(path.join(__dirname, 'node_modules')));
+app.use(require('body-parser').urlencoded( {extended: false} ));
+app.use(require('method-override')('_method'));
 app.set('html engine', 'html');
 app.engine('html', nunjucks.render);
 
@@ -18,12 +20,10 @@ app.get('/', function(req, res, next){
   res.render('index.html', { top: db.getProducts()[db.getProducts().length - 1].name});
 });
 
-app.get('/products', function(req, res, next){
-  res.render('products.html', { products: db.getProducts()});
-});
+app.use('/products', require('./routes/products'));
 
-app.get('/products/:id', function(req, res, next){
-  res.render('product.html', { product: db.getProduct(req.params.id * 1)});
+app.use(function(err, req, res, next){
+  res.render('error.html', { error: err });
 });
 
 var port = process.env.PORT || 3000;

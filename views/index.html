@@ -5,8 +5,19 @@
   <body>
     <div class = 'container'>
 
+      <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+          <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <li><a href="/products">All Products</a></li>
+        </ul>
+      </nav>
+
       <h1>Acme Products</h1>
-      <div class = 'well'>Our top product is <a href="/products">{{ top }}</a>.</div>
+      <div class = 'well'>
+        <h3>Welcome to Acme Products!</h3>
+        <p>Our top product is <a href="/products/{{ id }}">{{ top }}</a>.</p>
+        <p><a href="/products">See all of our products here!</a></p>
+      </div>
 
     </div>
   </body>

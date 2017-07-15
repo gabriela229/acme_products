@@ -20,6 +20,15 @@ module.exports = {
       return product.id === id;
       })[0];
     },
+  getTopProduct: function(){
+    return products.reduce(function(acc, curr){
+      if (acc.rating > curr.rating){
+        return acc;
+      } else {
+        return curr;
+      }
+    }, products[0]);
+  },
   createProduct: function(product){
     if (!product.name){
       throw 'name is required';

@@ -4,10 +4,16 @@
   </head>
   <body>
     <div class='container'>
-      <a href="/">Home</a>
+      <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+          <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <li><a href="/products">All Products</a></li>
+        </ul>
+      </nav>
       <h1>Products</h1>
 
       <div class='well'>
+        <h4>Create a new product!</h4>
         <form action="/products" method="POST">
           <div class='form-group'>
             <input type="text" class="form-control" name="name" placeholder="name">
@@ -26,12 +32,11 @@
         {% for product in products %}
           <li class='list-group-item'>
             <a href='/products/{{ product.id }}'>{{ product.name }}</a>
+            <span class='badge'>{{ product.rating }}</span>
           </li>
         {% endfor %}
 
         </ul>
-
-      <!-- <div class = 'well'>Our top product is <a href="/products">{{ top }}</a>.</div> -->
 
     </div>
   </body>

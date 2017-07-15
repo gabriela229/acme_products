@@ -17,7 +17,9 @@ nunjucks.configure('views', {
 });
 
 app.get('/', function(req, res, next){
-  res.render('index.html', { top: db.getProducts()[db.getProducts().length - 1].name});
+  res.render('index.html', {
+    id: db.getTopProduct().id,
+    top: db.getTopProduct().name});
 });
 
 app.use('/products', require('./routes/products'));

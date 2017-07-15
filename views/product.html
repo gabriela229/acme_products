@@ -4,10 +4,17 @@
   </head>
   <body>
     <div class='container'>
-      <a href="/products">All Products</a>
+      <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+          <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <li><a href="/products">All Products</a></li>
+        </ul>
+      </nav>
+
       <h1>Product - {{ product.name }}</h1>
 
-          <div class='well'> Rating: {{ product.rating }}
+          <div class='well'>
+            <p class="lead">Rating: {{ product.rating }}</p>
             <br/>
             <form action="/products/{{ product.id }}?_method=DELETE" method='POST'>
             <button class="btn btn-danger">Delete</button>

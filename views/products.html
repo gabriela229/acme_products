@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
+  </head>
+  <body>
+    <div class='container'>
+      <a href="/">Home</a>
+      <h1>Products</h1>
+        <ul class='list-group'>
+
+        {% for product in products %}
+          <li class='list-group-item'>
+            <a href='/products/{{ product.id }}'>{{ product.name }}</a>
+          </li>
+        {% endfor %}
+
+        </ul>
+
+      <!-- <div class = 'well'>Our top product is <a href="/products">{{ top }}</a>.</div> -->
+
+    </div>
+  </body>
+</html>
